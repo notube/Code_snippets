@@ -14,16 +14,18 @@ open (OOPS, ">$oops") || die "could not open $oops, $!";
 open (FILE, $lcfile) || die "could not open $lcfile, $!";
 while ($line = <FILE>)
 {
-	#"3"645.42|BED TIME|
-        if($line=~m/^(.*?)\|(.*)([\|])?.+/)
+        #b00plw68	639.1.03	NATIONAL PARKS (GAME RESERVES)
+        if($line=~m/^(.*?)\t(.*)\t(.*)/)
 
 	{
 		chomp $line;
-		$code=$1;
-		$lcterm=$2;
+		$code=$2;
+		$lcterm=$3;
+		#warn $code;
+		#warn $lcterm;
                 $lcterm=~s/\(.*\)//;
 		$lclcterm=lc($lcterm);
-		#warn $lclcterm;
+		#$lc{$lclcterm}=$line;
 		$lc{$lclcterm}=$code;
 		$titles{$lclcterm}=$lcterm;
 	}
@@ -39,7 +41,8 @@ while ($ligne = <FILED>)
 	$label = $2;
 	$label=lc($label);
 #	$uri = "http://dbpedia.org/resource/".$1;
-	$uri = "http://en.wikipedia.org/wiki/".$1;
+#	$uri = "http://en.wikipedia.org/wiki/".$1;
+	$uri = $1;
 		$labePl=$label."s";
 		$db{$label}=$uri;
 		$dbpl{$labelPl}=$uri;
@@ -52,15 +55,16 @@ foreach $w (keys %db)
 		$labelS=$w."s";
 		if($lc{$w})
 		{
-			print "exact match\t$w\t$lc{$w}\t$db{$w}\t$w\n";
+			print "$lc{$w}\t$db{$w}\t$w\texact\n";
 			$matched{$w}=$lc{$w};
 
 		}elsif($lc{$labelS})
 		{
-			print "sg/pl\t$w\t$lc{$labelS}\t$db{$w}\t$labelS\n";
+			print "$lc{$labelS}\t$db{$w}\t$labelS\tplural\n";
 			$matched{$labelS}=$lc{$labelS};
 		}else{
 #			print OOPS "Not matched: $w $labelS\n"
+
 		}
 
 		#to do: add partial matchings

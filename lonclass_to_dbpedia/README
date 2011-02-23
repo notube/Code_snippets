@@ -1,3 +1,10 @@
 Code by Véronique Malaisé on exact matching text with dbpedia / wikipedia.
 
+usage: perl lonclass2dbV1.pl pid_term_name_all.txt labels_en.nt > out.txt
+
+using
+http://dev.notu.be/2011/02/datasets/0.3/pid_term_name_all.txt.gz
+
+with
+http://downloads.dbpedia.org/3.6/en/labels_en.nt.bz2
 
