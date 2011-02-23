@@ -1,1 +1,3 @@
 A tiny piece of code to match programmes titles with dbpedialite.org
+
+Usage: ruby dbp_lite_text.rb
