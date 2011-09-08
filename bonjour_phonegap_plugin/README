@@ -1,0 +1,4 @@
+My first attempt at a bonjour plugin for phonegap. Code is horrible. 
+Seems to more or less work though I don't understand why I get more than 
+one IP for the same service.
+

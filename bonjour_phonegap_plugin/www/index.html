@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
+    <script type="text/javascript" src="bonjour.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <script type="text/javascript" charset="utf-8">
+
+	function onBodyLoad()
+	{		
+        document.addEventListener("deviceready",onDeviceReady,false);
+	
+    }
+
+        function successCallback(result){
+            try{
+                //alert("success "+result);
+                console.log("00000000"+result);
+                //$("#ddd").append("<p>"+result+"</p>");
+            }catch(ex){
+                
+                console.log("exception "+ex);
+            }
+            
+        }
+
+    function onDeviceReady()
+	{
+//alert("Device Ready!"); 
+        var bon=new Bonjour();
+        
+        successString = GetFunctionName(successCallback);
+        console.log("stringy "+successString);
+        
+        bon.nativeFunction(
+            successCallback,
+            function(result){
+               alert("Error : \r\n"+result);    
+            }  
+        );  
+        
+    }
+      
+        
+        
+    </script>
+  </head>
+  <body onload="onBodyLoad()">
+
+      <div id="ddd"></div>
+  </body>
+</html>
