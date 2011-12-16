@@ -1,0 +1,2 @@
+mkdir wiki
+ruby get_everything.rb
