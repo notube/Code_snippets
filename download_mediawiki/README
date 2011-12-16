@@ -1,2 +1,4 @@
+see http://www.mediawiki.org/wiki/API
+
 mkdir wiki
 ruby get_everything.rb
