@@ -121,9 +121,9 @@ end
 
 
 url = "https://notube.sti2.org/wiki/api.php"
-#?action=login&lgname=libby&lgpassword=libbym"
 
-form_data = {"action"=>"login","lgname"=>"libby","lgpassword"=>"libbym","format"=>"json"}
+# add username and password here
+form_data = {"action"=>"login","lgname"=>"","lgpassword"=>"","format"=>"json"}
       
 useragent = "NotubeMiniCrawler/0.5"
 u =  URI.parse url
@@ -144,9 +144,11 @@ headers = {
   'Content-Type' => 'application/x-www-form-urlencoded'
 }
 
-form_data = {"action"=>"login","lgname"=>"libby","lgpassword"=>"libbym","lgtoken"=>token,"format"=>"json"}
 
-d = "action=login&lgname=libby&lgpassword=libbym&lgtoken#{token}&format=json"
+# add username and password here
+form_data = {"action"=>"login","lgname"=>"","lgpassword"=>"","lgtoken"=>token,"format"=>"json"}
+
+d = "action=login&lgname=&lgpassword=&lgtoken#{token}&format=json"
 
 resp, data = http.post(u.path, d, headers)
 
