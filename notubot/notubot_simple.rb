@@ -1,3 +1,5 @@
+# simple ruby logger bot based on yail that also puts links into delicious
+
 require 'rubygems'
 require 'net/yail'
 require 'cgi'
